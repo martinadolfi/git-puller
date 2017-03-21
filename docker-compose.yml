@@ -1,0 +1,17 @@
+version: '2'
+services:
+  git:
+    image: martinadolfi/git-puller
+    environment:
+      BRANCH: master
+      REPO: https://github.com/martinadolfi/basichttp.git
+      MYDIR: /usr/local/apache2/htdocs
+    volumes:
+      - /usr/local/apache2/htdocs
+  web:
+    image: httpd
+    volumes_from:
+      - git
+    ports:
+      - "80:80"
+
