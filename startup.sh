@@ -6,17 +6,17 @@ then
 else
 	echo "Folder $MYDIR exists"
 fi
-if [ ! -e /home/root/.ssh/id_rsa.pub ]
+if [ ! -e ~/.ssh/id_rsa.pub ]
 then
 	echo "Creating ssh key"
 	mkdir -p /home/root/.ssh
 	chmod 700 /home/root/.ssh
-	ssh-keygen -t rsa -N "" -f /home/root/.ssh/id_rsa
+	ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 else
 	echo "Key exists"
 fi
 echo "Public Key"
-cat /home/root/.ssh/id_rsa.pub
+cat ~/.ssh/id_rsa.pub
 cd $MYDIR
 if [ ! -e $MYDIR/.git ]
 then
